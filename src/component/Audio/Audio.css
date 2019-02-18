@@ -1,0 +1,37 @@
+.audio-content{
+    width: 980px;
+    margin:0 auto ;
+    height: 47px;
+}
+.btns{
+    width: 137px;
+    overflow: hidden;
+    padding: 6px 0 0;
+}
+
+.btns a{
+    float: left;
+    background: url("../../static/playbar.png") no-repeat 0 9999px;
+    text-indent: -9999px;
+    margin-right: 8px;
+    margin-top: 5px;
+    height: 28px;
+    width: 28px;
+}
+a.prev{
+    background-position: 0 -130px;
+}
+a.next{
+    background-position: -80px -130px;
+}
+a.play{
+    background-position: 0 -165px;
+}
+a.paused{
+    background-position: 0 -204px;
+}
+a.play-pauseBtn{
+    width: 36px;
+    height: 36px;
+    margin-top: 0;
+}

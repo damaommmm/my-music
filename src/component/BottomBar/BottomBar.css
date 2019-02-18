@@ -1,0 +1,7 @@
+.BottomBar{
+    width: 100%;
+    background: url("../../static/playbar.png") repeat-x 0px 0 ;
+    height: 53px;
+    padding-top: 6px;
+    box-sizing: border-box;
+}
