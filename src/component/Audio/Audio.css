@@ -5,7 +5,8 @@
 }
 .btns{
     width: 137px;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    float: left;
     padding: 6px 0 0;
 }
 
@@ -24,14 +25,36 @@ a.prev{
 a.next{
     background-position: -80px -130px;
 }
-a.play{
+a.audio-play{
     background-position: 0 -165px;
 }
-a.paused{
+a.audio-paused{
     background-position: 0 -204px;
 }
 a.play-pauseBtn{
     width: 36px;
     height: 36px;
     margin-top: 0;
+}
+.audio-content .sing-image{
+    margin: 6px 15px 0 0;
+    width: 34px;
+    height: 34px;
+    background: red;
+    float: left;
+}
+
+.audio-content .audio-play-control{
+    float: left;
+    width: 608px;
+    /*height: 20px;*/
+    background: yellow;
+}
+
+.audio-content .audio-play-control .audio-info{
+    font-size: 12px;
+}
+
+.audio-content .audio-play-control .audio-info .audio-name{
+    line-height: 28px;
 }

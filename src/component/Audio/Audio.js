@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './Audio.css';
+import ProgressBar from '../ProgressBar/ProgressBar'
 
 class Audio extends Component {
     constructor(props){
         super(props);
         this.audio = React.createRef();
         this.state = {
-            audioState:'paused'
+            audioState:'audio-paused'
         }
     }
     playAndPase = () => {
@@ -15,12 +16,12 @@ class Audio extends Component {
         if(audio.paused){
             audio.play();
             this.setState({
-                audioState:'play'
+                audioState:'audio-play'
             })
         }else {
             audio.pause();
             this.setState({
-                audioState:'paused'
+                audioState:'audio-paused'
             })
         }
     };
@@ -37,7 +38,17 @@ class Audio extends Component {
                         <a href="javascript:;" hidefocus="true" className={'play-pauseBtn '+audioState} onClick={this.playAndPase}>播放/暂停</a>
                         <a href="javascript:;" hidefocus="true" className="next">下一首</a>
                     </div>
+                    <div className="sing-image">
+                        <img src="" alt=""/>
+                    </div>
+                    <div className="audio-play-control">
+                        <div className="audio-info">
+                            <a href="#" className="audio-name">明年今日</a>
+                        </div>
+                        <ProgressBar />
+                    </div>
                 </div>
+
             </div>
         );
     }

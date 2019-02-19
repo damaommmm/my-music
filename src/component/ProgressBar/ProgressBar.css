@@ -1,0 +1,30 @@
+.ProgressBar{
+    width: 493px;
+    position: relative;
+    /*overflow: hidden;*/
+    zoom: 1;
+}
+.ProgressBar .ProgressBg{
+    background: url("../../static/statbar.png") no-repeat 0 -30px;
+    height: 9px;
+    position: relative;
+}
+
+.ProgressBar .ProgressCur{
+    background:url("../../static/statbar.png") no-repeat 0 -66px;
+    height: 9px;
+    position: relative;
+    top: -9px;
+    left: 0;
+}
+
+.ProgressBar .ProgressCur .slide{
+    background: url("../../static/iconall.png") no-repeat 0 -250px;
+    width: 22px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    right: -9px;
+    top: -7px;
+    cursor: pointer;
+}
