@@ -7,7 +7,7 @@ class ProgressBar extends Component {
         this.slide = React.createRef();
         this.progressBg = React.createRef();
         this.state = {
-            curWidth: 0,
+            curWidth: props.progress,
             progressBgX: 0
         }
     }
@@ -22,6 +22,7 @@ class ProgressBar extends Component {
             this.setState({
                 curWidth: progress > 493 ? 493 : progress
             });
+            this.props.changeProgress(progress/493)
         };
         window.addEventListener('mousemove', mouseMove);
 
@@ -32,6 +33,18 @@ class ProgressBar extends Component {
         };
         window.addEventListener('mouseup', removeMouse);
     };
+
+    componentWillReceiveProps(newProps,newState){
+        if(this.props.progress === newProps){
+            return false
+        }else{
+            console.log(newProps);
+            this.setState({
+                curWidth:parseInt(newProps.progress*493)+'px'
+            });
+            return true
+        }
+    }
 
     render() {
         return (

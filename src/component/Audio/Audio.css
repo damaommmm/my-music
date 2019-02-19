@@ -48,7 +48,7 @@ a.play-pauseBtn{
     float: left;
     width: 608px;
     /*height: 20px;*/
-    background: yellow;
+    /*background: yellow;*/
 }
 
 .audio-content .audio-play-control .audio-info{
@@ -57,4 +57,5 @@ a.play-pauseBtn{
 
 .audio-content .audio-play-control .audio-info .audio-name{
     line-height: 28px;
+    color: #fff;
 }
