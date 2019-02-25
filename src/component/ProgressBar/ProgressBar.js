@@ -8,7 +8,8 @@ class ProgressBar extends Component {
         this.progressBg = React.createRef();
         this.state = {
             curWidth: props.progress,
-            progressBgX: 0
+            progressBgX: 0,
+            allTime: "00:00"
         }
     }
 
@@ -16,13 +17,13 @@ class ProgressBar extends Component {
         this.setState({
             progressBgX: this.progressBg.current.offsetLeft
         });
-        const mouseMove = (e) =>{
+        const mouseMove = (e) => {
             const progress = e.clientX - this.state.progressBgX;
             // console.log(progress);
             this.setState({
                 curWidth: progress > 493 ? 493 : progress
             });
-            this.props.changeProgress(progress/493)
+            this.props.changeProgress(progress / 493)
         };
         window.addEventListener('mousemove', mouseMove);
 
@@ -34,25 +35,30 @@ class ProgressBar extends Component {
         window.addEventListener('mouseup', removeMouse);
     };
 
-    componentWillReceiveProps(newProps,newState){
-        if(this.props.progress === newProps){
+    componentWillReceiveProps(newProps, newState) {
+        if (this.props.progress === newProps) {
             return false
-        }else{
-            console.log(newProps);
+        } else {
+            // console.log(newProps);
             this.setState({
-                curWidth:parseInt(newProps.progress*493)+'px'
+                curWidth: parseInt(newProps.progress * 493) + 'px'
             });
             return true
         }
     }
 
     render() {
+        const {allTime, hoverTime} = this.props;
         return (
-            <div className="ProgressBar" ref={this.progressBg}>
+            <div className="ProgressBar clearFix" ref={this.progressBg}>
                 <div className="ProgressBg"></div>
                 <div className="ProgressCur" style={{width: this.state.curWidth}}>
                     <span className="slide" ref={this.slide} onMouseDown={this.mouseDown}>
                     </span>
+                </div>
+                <div className="ProgressTime">
+                    <span className="hoverTime">{hoverTime}</span>
+                    <span className="allTime">/{allTime}</span>
                 </div>
             </div>
         );

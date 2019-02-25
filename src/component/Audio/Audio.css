@@ -53,9 +53,12 @@ a.play-pauseBtn{
 
 .audio-content .audio-play-control .audio-info{
     font-size: 12px;
+    /*overflow: hidden;*/
 }
 
 .audio-content .audio-play-control .audio-info .audio-name{
     line-height: 28px;
     color: #fff;
+    text-decoration: none;
+    float: left;
 }

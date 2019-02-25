@@ -8,7 +8,9 @@ class Audio extends Component {
         this.audio = React.createRef();
         this.state = {
             audioState: 'audio-paused',
-            audioPercent: 0
+            audioPercent: 0,
+            allTime: '00:00',
+            hoverTime: '00:00'
         }
     }
 
@@ -36,15 +38,20 @@ class Audio extends Component {
     componentDidMount() {
         const audio = this.audio.current;
         setInterval(() => {
-            console.log(this.audio.current.currentTime);
+            // console.log(this.audio.current.currentTime);
+            // console.log(this.audio.current.duration);
+            let allTime = timeFormat(this.audio.current.duration);
+            let hoverTime = timeFormat(this.audio.current.currentTime);
             this.setState({
-                audioPercent: audio.currentTime / audio.duration
+                audioPercent: audio.currentTime / audio.duration,
+                allTime: allTime,
+                hoverTime: hoverTime
             })
         }, 1000)
     }
 
     render() {
-        const {audioState} = this.state;
+        const {audioState, allTime, hoverTime} = this.state;
         return (
             <div className="Audio">
                 <audio src={require('../../static/222.mp3')} ref={this.audio}>
@@ -61,16 +68,25 @@ class Audio extends Component {
                         <img src="" alt=""/>
                     </div>
                     <div className="audio-play-control">
-                        <div className="audio-info">
-                            <a href="#" className="audio-name">明年今日</a>
+                        <div className="audio-info clearFix">
+                            <a href="#" className="audio-name">明年今日(陈奕迅)</a>
                         </div>
-                        <ProgressBar progress={this.state.audioPercent} changeProgress={this.changeProgress}/>
+                        <ProgressBar allTime={allTime} hoverTime={hoverTime} progress={this.state.audioPercent}
+                                     changeProgress={this.changeProgress}/>
                     </div>
                 </div>
 
             </div>
         );
     }
+}
+
+function timeFormat(time = 0) {
+    let hour = parseInt(time / 60);
+    hour = hour < 10 ? '0' + hour : hour;
+    let second = Math.ceil(time%60);
+    second = second < 10 ? '0' + second : second;
+    return `${hour}:${second}`
 }
 
 export default Audio;

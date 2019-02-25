@@ -2,7 +2,7 @@
     width: 493px;
     position: relative;
     /*overflow: hidden;*/
-    zoom: 1;
+    /*zoom: 1;*/
 }
 .ProgressBar .ProgressBg{
     background: url("../../static/statbar.png") no-repeat 0 -30px;
@@ -27,4 +27,19 @@
     right: -9px;
     top: -7px;
     cursor: pointer;
+}
+.ProgressTime{
+    position: absolute;
+    right: -73px;
+    font-size: 12px;
+    top: -4px;
+    color: white;
+}
+
+.ProgressTime .hoverTime{
+    color: #a1a1a1;
+}
+
+.ProgressTime .allTime{
+    color: #797979;
 }
